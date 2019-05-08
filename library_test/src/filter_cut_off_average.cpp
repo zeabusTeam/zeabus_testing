@@ -18,6 +18,7 @@ int main( int argv , char** aargc )
         std::cout   << "Input integer : ";
         std::cin    >> temp_value;
         my_filter.push( temp_value );
-        std::cout   << "Output filter : " << my_filter.get_result();
+        temp_value = my_filter.get_result();
+        std::cout   << "Output is " << temp_value << std::endl;
     }
 }
