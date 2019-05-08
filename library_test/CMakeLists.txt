@@ -8,6 +8,10 @@ find_package( zeabus_library_cpp REQUIRED )
 
 message("zeabus_library_cpp_LIBRARIES is ${zeabus_library_cpp_LIBRARIES}")
 
+catkin_package(
+
+)
+
 include_directories(
     ${zeabus_library_cpp_INCLUDE_DIRS}
 )
