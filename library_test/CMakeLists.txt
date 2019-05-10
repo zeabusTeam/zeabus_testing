@@ -6,7 +6,7 @@ set( CMAKE_CXX_FLAGS "-Wall -std=c++14" )
 find_package( catkin REQUIRED roscpp)
 find_package( zeabus_library_cpp REQUIRED )
 
-message("zeabus_library_cpp_LIBRARIES is ${zeabus_library_cpp_LIBRARIES}")
+#message("zeabus_library_cpp_LIBRARIES is ${zeabus_library_cpp_LIBRARIES}")
 
 catkin_package(
 
