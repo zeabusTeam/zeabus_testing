@@ -20,3 +20,8 @@ add_executable( test_filter_average src/filter_cut_off_average.cpp)
 target_link_libraries( test_filter_average
     ${zeabus_library_cpp_LIBRARIES}
 )
+
+add_executable( single_log src/single_log.cpp)
+target_link_libraries( single_log
+    ${zeabus_library_cpp_LIBRARIES}
+)
