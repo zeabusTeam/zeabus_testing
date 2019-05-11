@@ -20,6 +20,8 @@
 int main( int argv , char** argc )
 {
 
+    ros::Time::init();
+
     zeabus::ros_interfaces::file::SingleFilter log_file;
 
     (void)log_file.setup_package("zeabus_log");
