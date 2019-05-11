@@ -24,10 +24,24 @@ int main( int argv , char** argc )
 
     zeabus::ros_interfaces::file::SingleFilter log_file;
 
-    (void)log_file.setup_package("zeabus_log");
+    bool result;
+
+    result = log_file.setup_package("zeabus_log");
+    if( result )
+    {
+        std::cout   << "Success setup_pacakge\n";
+    }
     log_file.setup_subdirectory( "log/filter" );
     log_file.setup_file_name( "testing.txt" );
-    log_file.open();
+    result = log_file.open();
+    if( result )
+    {
+        std::cout   << "Success to open file\n";
+    }
+    else
+    {
+        std::cout   << "Failure to open file\n";
+    }
 
     zeabus::filter::CutOffAverage< double , 10 > filter;
     (void)filter.setup_cutoff(2);
