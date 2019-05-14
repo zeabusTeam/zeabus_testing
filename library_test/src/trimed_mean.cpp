@@ -5,11 +5,11 @@
 
 #include    <iostream>
 
-#include    <zeabus/filter/cut_off_average.hpp>
+#include    <zeabus/filter/trimed_mean.hpp>
 
 int main( int argv , char** aargc )
 {
-    zeabus::filter::CutOffAverage< int , 10 > my_filter(2);
+    zeabus::filter::TrimedMean< int , 10 > my_filter(2);
 
     int temp_value;
 

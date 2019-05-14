@@ -16,12 +16,17 @@ include_directories(
     ${zeabus_library_cpp_INCLUDE_DIRS}
 )
 
-add_executable( test_filter_average src/filter_cut_off_average.cpp)
+add_executable( test_filter_average src/trimed_mean.cpp)
 target_link_libraries( test_filter_average
     ${zeabus_library_cpp_LIBRARIES}
 )
 
 add_executable( single_log src/single_log.cpp)
 target_link_libraries( single_log
+    ${zeabus_library_cpp_LIBRARIES}
+)
+
+add_executable( time_test src/time_test.cpp)
+target_link_libraries( time_test
     ${zeabus_library_cpp_LIBRARIES}
 )

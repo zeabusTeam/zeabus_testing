@@ -15,7 +15,7 @@
 
 #include    <zeabus/ros_interfaces/file/single_filter.hpp>
 
-#include    <zeabus/filter/cut_off_average.hpp>
+#include    <zeabus/filter/trimed_mean.hpp>
 
 int main( int argv , char** argc )
 {
@@ -43,8 +43,8 @@ int main( int argv , char** argc )
         std::cout   << "Failure to open file\n";
     }
 
-    zeabus::filter::CutOffAverage< double , 10 > filter;
-    (void)filter.setup_cutoff(2);
+    zeabus::filter::TrimedMean< double , 10 > filter;
+    (void)filter.setup_trim(2);
 
     log_file.write_column( "input" , "output");
     ros::Time time;
