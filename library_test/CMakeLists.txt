@@ -30,3 +30,8 @@ add_executable( time_test src/time_test.cpp)
 target_link_libraries( time_test
     ${zeabus_library_cpp_LIBRARIES}
 )
+
+add_executable( diff_rad_test src/shortest_rad.cpp)
+target_link_libraries( diff_rad_test
+    ${zeabus_library_cpp_LIBRARIES}
+)
