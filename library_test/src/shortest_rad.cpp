@@ -30,7 +30,7 @@ int main( int argv, char** argc )
 
     for( unsigned int run = 0 ; run < num_set ; run++ )
     {
-        std::cout   << "Test " << run << "Start : Target <-> " << start[ run ] <<  " : "
+        std::cout   << "Test " << run << " Start : Target <-> " << start[ run ] <<  " : "
                     << target[ run ] << " result is " 
                     << zeabus::radian::different( start[run] , target[run] ) << "\n";
     }
