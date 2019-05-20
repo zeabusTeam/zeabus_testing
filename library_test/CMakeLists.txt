@@ -9,7 +9,7 @@ find_package( zeabus_library_cpp REQUIRED )
 #message("zeabus_library_cpp_LIBRARIES is ${zeabus_library_cpp_LIBRARIES}")
 
 catkin_package(
-
+    CATKIN_DEPENDS roscpp
 )
 
 include_directories(
@@ -34,4 +34,10 @@ target_link_libraries( time_test
 add_executable( diff_rad_test src/shortest_rad.cpp)
 target_link_libraries( diff_rad_test
     ${zeabus_library_cpp_LIBRARIES}
+)
+
+add_executable( count_test src/count.cpp)
+target_link_libraries( count_test 
+    ${zeabus_library_cpp_LIBRARIES}
+    ${catkin_LIBRARIES}
 )
