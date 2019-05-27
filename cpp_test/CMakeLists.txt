@@ -11,3 +11,5 @@ catkin_package(
 add_executable( cpp_sort src/cpp_sort.cpp)
 
 add_executable( cpp_convert src/cpp_convert.cpp)
+
+add_executable( cpp_2_dimension src/cpp_2_dimension.cpp)
