@@ -32,15 +32,14 @@ int main( int argv , char** argc )
     }
 */
 
-    
-    std::array< std::array< double , 5 > , 5 > array_2_dimension = {
+    std::array< std::array< double , 5 > , 5 > array_2_dimension ={
          0 , 1 , 2 , 3 , 4 
         , 5 , 6 , 7 , 8 , 9 
         , 10 , 11 , 12 , 13 , 14
         , 15 , 16 , 17 , 18 , 100
         , 20 , 21 , 21 , 22 , 23
     };
-
+    
     for( unsigned int run_x = 0 ; run_x < 5 ; run_x++ )
     {
         for( unsigned int run_y = 0 ; run_y < 5 ; run_y++ )
