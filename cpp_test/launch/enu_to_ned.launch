@@ -1,0 +1,8 @@
+<?xml version="1"?>
+
+<launch>
+
+    <node pkg="tf" type="static_transform_publisher" name="enu_to_ned" 
+        args="0.0 0.0 0.0 0.7071 0.7071 0.0 0.0 enu ned 10"/>
+
+</launch>
