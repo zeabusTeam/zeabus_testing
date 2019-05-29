@@ -47,3 +47,6 @@ target_link_libraries( quaternion
     ${zeabus_library_cpp_LIBRARIES}
     ${catkin_LIBRARIES}
 )
+
+add_executable( shutdown src/shutdown.cpp)
+target_link_libraries( shutdown ${catkin_LIBRARIES})
