@@ -3,7 +3,7 @@ project( library_test )
 
 set( CMAKE_CXX_FLAGS "-Wall -std=c++14" )
 
-find_package( catkin REQUIRED roscpp)
+find_package( catkin REQUIRED roscpp tf geometry_msgs)
 find_package( zeabus_library_cpp REQUIRED )
 
 #message("zeabus_library_cpp_LIBRARIES is ${zeabus_library_cpp_LIBRARIES}")
@@ -38,6 +38,12 @@ target_link_libraries( diff_rad_test
 
 add_executable( count_test src/count.cpp)
 target_link_libraries( count_test 
+    ${zeabus_library_cpp_LIBRARIES}
+    ${catkin_LIBRARIES}
+)
+
+add_executable( quaternion src/quaternion.cpp )
+target_link_libraries( quaternion 
     ${zeabus_library_cpp_LIBRARIES}
     ${catkin_LIBRARIES}
 )

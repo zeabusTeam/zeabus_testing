@@ -19,4 +19,10 @@
     <build_depend>roscpp</build_depend>
     <exec_depend>roscpp</exec_depend>
 
+    <build_depend>tf</build_depend>
+    <exec_depend>tf</exec_depend>
+
+    <build_depend>geometry_msgs</build_depend>
+    <exec_depend>geometry_msgs</exec_depend>
+
 </package>
