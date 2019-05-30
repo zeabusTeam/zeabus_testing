@@ -36,16 +36,13 @@ int main( int argv , char** argc )
     geometry_msgs::PoseStamped origin_msg;
  
     enu_msg.header.frame_id = "odom";
-    enu_msg.pose.position.x = 0;
-    enu_msg.pose.position.y = 0;
-    enu_msg.pose.position.z = 1;
-    enu_msg.pose.orientation.x = 0;
-    enu_msg.pose.orientation.y = 0;
-    enu_msg.pose.orientation.z = 0;
-    enu_msg.pose.orientation.w = 1;
 
     // Constructor x y z w
-    tf::Quaternion linear_value( 0 , 0 , 1 , 0 );
+    // we have linear value in enu convention of body frame
+    tf::Quaternion linear_value( 3 , 2 , 1 , 0 );
+    enu_msg.pose.position.x = linear_value.x();
+    enu_msg.pose.position.y = linear_value.y();
+    enu_msg.pose.position.z = linear_value.z();
     
     tf::Quaternion ned_to_enu( 0.7071 , 0.7071 , 0 , 0 );
 
@@ -53,13 +50,13 @@ int main( int argv , char** argc )
 
     tf::Quaternion ned_quaternion;
 
-    std::cout   << "Please input your roll pitch yaw : ";
+//    std::cout   << "Please input your roll pitch yaw : ";
     double RPY[3];
 //    std::cin    >> RPY[0] >> RPY[1] >> RPY[2];
 //    ned_quaternion = tf::Quaternion( RPY[2] , RPY[1] , RPY[0] );
 
-    ned_quaternion = tf::Quaternion( 1.57 , 0.0 , 0.0 );
-    enu_quaternion = ned_to_enu * ned_quaternion;
+    ned_quaternion = tf::Quaternion( 1.57 , 2 , 1.2 );
+    enu_quaternion = ned_to_enu * ned_quaternion * ned_to_enu.inverse();
 
     std::cout   << "NED SYSTEM : ";
     std::cout   << "\tQuaternion : " << ned_quaternion.x() << " " << ned_quaternion.y() << " "
@@ -79,17 +76,21 @@ int main( int argv , char** argc )
     std::cout   << "Origin linear : " << linear_value.x() << " " << linear_value.y()
                 << " " << linear_value.z() << "\n";
     std::cout   << "NED linear    : " << temp.x() << " " << temp.y() << " " << temp.z() << "\n"; 
-    temp = enu_quaternion.inverse() * linear_value * enu_quaternion;
+    temp = enu_quaternion * linear_value * enu_quaternion.inverse();
     std::cout   << "ENU linear    : " << temp.x() << " " << temp.y() << " " << temp.z() << "\n";
 
     origin_msg.header.frame_id = "odom";
     origin_msg.pose.position.x = temp.x();
     origin_msg.pose.position.y = temp.y();
     origin_msg.pose.position.z = temp.z();
-    origin_msg.pose.orientation.x = enu_quaternion.x();
-    origin_msg.pose.orientation.y = enu_quaternion.y();
-    origin_msg.pose.orientation.z = enu_quaternion.z();
-    origin_msg.pose.orientation.w = enu_quaternion.w();
+    enu_msg.pose.orientation.x = enu_quaternion.x();
+    enu_msg.pose.orientation.y = enu_quaternion.y();
+    enu_msg.pose.orientation.z = enu_quaternion.z();
+    enu_msg.pose.orientation.w = enu_quaternion.w();
+    origin_msg.pose.orientation.x = 0;
+    origin_msg.pose.orientation.y = 0;
+    origin_msg.pose.orientation.z = 0;
+    origin_msg.pose.orientation.w = 1;
 
     ros::Rate rate( 10 );
     while( node_handlle.ok() )
