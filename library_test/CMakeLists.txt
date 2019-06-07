@@ -48,5 +48,11 @@ target_link_libraries( quaternion
     ${catkin_LIBRARIES}
 )
 
+add_executable( rotation_quaternion src/rotation_quaternion.cpp )
+target_link_libraries( rotation_quaternion 
+    ${zeabus_library_cpp_LIBRARIES}
+    ${catkin_LIBRARIES}
+)
+
 add_executable( shutdown src/shutdown.cpp)
 target_link_libraries( shutdown ${catkin_LIBRARIES})
