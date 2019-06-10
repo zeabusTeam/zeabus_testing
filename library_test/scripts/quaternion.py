@@ -8,7 +8,7 @@
 
 # REFERENCE
 
-from __future__ import print
+from __future__ import print_function
 
 from zeabus.math.quaternion import Quaternion
 
@@ -25,10 +25,23 @@ if __name__ == "__main__":
     target_quaternion.print_quaternion( "target_quaternion" )
 
     diff_quaternion = target_quaternion * current_quaternion.inverse()
+    diff_quaternion.print_quaternion( "diff_quaternion")
 
+    current_euler = current_quaternion.get_euler()
     diff_euler = diff_quaternion.get_euler()
+    target_euler = target_quaternion.get_euler()
+
+    print( "Euler target is {:6.3f} {:6.3f} {:6.3f}".format( 
+        target_euler[0] 
+        , target_euler[1] 
+        , target_euler[2] ) ) 
+
+    print( "Euler current is {:6.3f} {:6.3f} {:6.3f}".format( 
+        current_euler[0] 
+        , current_euler[1] 
+        , current_euler[2] ) ) 
 
     print( "Euler different is {:6.3f} {:6.3f} {:6.3f}".format( 
-        , diff_euler[0] 
+        diff_euler[0] 
         , diff_euler[1] 
         , diff_euler[2] ) ) 
