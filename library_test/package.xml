@@ -16,6 +16,9 @@
     <build_depend>zeabus_library_cpp</build_depend>
     <exec_depend>zeabus_library_cpp</exec_depend>
 
+    <build_depend>zeabus_library_python</build_depend>
+    <exec_depend>zeabus_library_python</exec_depend>
+
     <build_depend>roscpp</build_depend>
     <exec_depend>roscpp</exec_depend>
 
