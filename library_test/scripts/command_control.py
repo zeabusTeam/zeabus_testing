@@ -18,7 +18,7 @@ import math
 
 if __name__=="__main__":
 
-    rospy.init_node( "testing_lib" )
+    rospy.init_node( "testing" )
 
     name_node = rospy.get_name()
 
@@ -30,13 +30,17 @@ if __name__=="__main__":
 
     print("Now I will absolute yaw to north")
 
-    auv_control.absolute_yaw( math.pi )
+    auv_control.absolute_yaw( math.pi / 2 )
 
     auv_control.echo_data()
 
-    print("I will sleep 5 second")
+    print( "I will waiting yaw" )
 
-    rospy.sleep( 5 )
+    while( not rospy.is_shutdown() ):
+        if( auv_control.check_yaw( 0.5 ) ):
+            break
+        else:
+            rospy.sleep( 0.5 )
 
     auv_control.relative_xy( 3 , 1 , True )
 
@@ -44,7 +48,11 @@ if __name__=="__main__":
 
     auv_control.echo_data()
 
-    rospy.sleep(10)
+    while( not rospy.is_shutdown() ):
+        if( auv_control.check_xy( 0.15 , 0.15) ):
+            break
+        else:
+            rospy.sleep( 0.5 )
 
     auv_control.absolute_z( -2 )
 
