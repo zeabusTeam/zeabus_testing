@@ -59,6 +59,6 @@ add_executable( shutdown src/shutdown.cpp)
 target_link_libraries( shutdown ${catkin_LIBRARIES})
 
 catkin_install_python(
-    PROGRAMS scripts/quaternion.py
+    PROGRAMS scripts/quaternion.py scripts/command_control.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION} 
 )
