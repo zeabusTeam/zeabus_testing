@@ -58,7 +58,13 @@ target_link_libraries( rotation_quaternion
 add_executable( shutdown src/shutdown.cpp)
 target_link_libraries( shutdown ${catkin_LIBRARIES})
 
+set( PYTHON_CODE 
+    scripts/quaternion.py
+    scripts/command_control.py
+    scripts/master_control.py
+)
+
 catkin_install_python(
-    PROGRAMS scripts/quaternion.py scripts/command_control.py
+    PROGRAMS ${PYTHON_CODE}
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION} 
 )
