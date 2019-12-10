@@ -4,7 +4,7 @@
     <name>library_test</name>
     <version>0.0.0</version>
     
-    <description>This use to testing own library have been create in zeabus_library_cpp package
+    <description>This use to testing own library have been create in zeabus_library package
     </description>
 
     <maintainer email="supasan.k@ku.th">Supasan Komonlit</maintainer>
@@ -13,11 +13,8 @@
 
     <buildtool_depend>catkin</buildtool_depend>
 
-    <build_depend>zeabus_library_cpp</build_depend>
-    <exec_depend>zeabus_library_cpp</exec_depend>
-
-    <build_depend>zeabus_library_python</build_depend>
-    <exec_depend>zeabus_library_python</exec_depend>
+    <build_depend>zeabus_library</build_depend>
+    <exec_depend>zeabus_library</exec_depend>
 
     <build_depend>roscpp</build_depend>
     <exec_depend>roscpp</exec_depend>
