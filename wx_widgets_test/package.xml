@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+
+    <name>wx_widgets_test</name>
+    <version>0.0.0</version>
+
+    <description>Test and learning wdWidgets library of cpp</description>
+
+    <maintainer email="supasna.k@ku.th">Supasan Komonlit</maintainer>
+
+    <license>MIT</license>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <build_depend>wxWidgets</build_depend>
+
+</package>
