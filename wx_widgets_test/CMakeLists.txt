@@ -22,5 +22,8 @@ add_definitions( -DWXUSINGDLL -D__WXGTK2__ -D__WXGTK__ )
 add_executable( cpp_wx src/cpp_wxWidgets.cpp)
 target_link_libraries( cpp_wx ${wxWidgets_LIBRARIES} )
 
+add_executable( hello_world src/hello_world.cpp)
+target_link_libraries( hello_world ${wxWidgets_LIBRARIES} )
+
 add_executable( first_wx src/first_wxWidgets.cpp )
 target_link_libraries( first_wx ${wxWidgets_LIBRARIES} )
