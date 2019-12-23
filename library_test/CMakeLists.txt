@@ -18,3 +18,9 @@ target_link_libraries( outliner
     ${catkin_LIBRARIES}
     ${zeabus_library_LIBRARIES}
 )
+
+add_executable( csv_file src/read_csv_file.cpp)
+target_link_libraries( csv_file 
+    ${catkin_LIBRARIES}
+    ${zeabus_library_LIBRARIES}
+)
