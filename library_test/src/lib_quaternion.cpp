@@ -37,4 +37,14 @@ int main( int argv , char** argc )
     tf::Matrix3x3( temp_quaternion ).getRPY( roll , pitch , yaw );
     std::cout   << "tf lib " << roll << " , " << pitch << " , " << yaw << "\n";
 
+    double test[10] = { 0 , 0 , 0 , 0 , 6 , 10 , 0 , 0 , 0 , 0 };
+    boost::array< double , 3 > test_array = { 0 , 6 , 10 };
+    tf::Quaternion quat_rotation( 0.0 , 0.0 , 0.247 , 0.969 );
+
+    zeabus::math::rotation( quat_rotation , &test_array );
+    zeabus::math::rotation( quat_rotation , &test[3] );
+ 
+    std::cout   << "X === " << test[ 3 ] << "  : " << test_array[ 0 ] << "\n"; 
+    std::cout   << "Y === " << test[ 4 ] << "  : " << test_array[ 1 ] << "\n"; 
+    std::cout   << "Z === " << test[ 5 ] << "  : " << test_array[ 2 ] << "\n"; 
 }
