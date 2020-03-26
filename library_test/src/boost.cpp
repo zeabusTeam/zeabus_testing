@@ -16,4 +16,5 @@ int main( int argv , char** argc )
     std::cout   << "After :\n"; zeabus_boost::print( dest );
     zeabus_boost::mat_concat( &dest , source2 , source1 );
     std::cout   << "And After :\n"; zeabus_boost::print( dest );
+    std::cout   << "transpose of after\n"; zeabus_boost::printT( dest );
 }

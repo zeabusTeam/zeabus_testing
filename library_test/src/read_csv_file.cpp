@@ -30,6 +30,8 @@ int main( int argv , char** argc )
     double* ptr_double;
 
     std::string buffer_data = "";
+    double temp_01[ 5 ] = { 0 , 1 , 2 , 9 , 4 };
+    double temp_02[ 5 ] = { 4 , 3 , 2 , 10 , 0 };
 
     if( fh.is_open() )
     {
@@ -73,6 +75,10 @@ int main( int argv , char** argc )
     {
         goto exit_main;
     }
+ 
+    path = zeabus_ros::get_full_path( "library_test" , "parameter" , "test_write.txt" );
+    zeabus::dump_csv_type_3( path , temp_01 , temp_02 , temp_01 , 5 );
+
 
 exit_main:
     return 0;

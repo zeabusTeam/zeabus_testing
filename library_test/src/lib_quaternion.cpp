@@ -47,4 +47,22 @@ int main( int argv , char** argc )
     std::cout   << "X === " << test[ 3 ] << "  : " << test_array[ 0 ] << "\n"; 
     std::cout   << "Y === " << test[ 4 ] << "  : " << test_array[ 1 ] << "\n"; 
     std::cout   << "Z === " << test[ 5 ] << "  : " << test_array[ 2 ] << "\n"; 
+
+    std::cout   << "zeabus library test create quaternion convention yaw pitch roll\n";
+    roll = 1.0;
+    pitch = 0.4;
+    yaw = -2.0;
+    std::cout   << "Target roll pitch yaw " << roll << " : " << pitch << " : " << yaw << "\n";
+    zeabus::math::get_quaternion( roll , pitch , yaw , &temp_quaternion );
+    std::cout   << "zeabus_lib :\n" 
+                << "\tx : " << temp_quaternion.x() << "\n"
+                << "\ty : " << temp_quaternion.y() << "\n"
+                << "\tz : " << temp_quaternion.z() << "\n"
+                << "\tw : " << temp_quaternion.w() << "\n";
+    temp_quaternion = tf::Quaternion( yaw , pitch , roll );
+    std::cout   << "tf_lib :\n" 
+                << "\tx : " << temp_quaternion.x() << "\n"
+                << "\ty : " << temp_quaternion.y() << "\n"
+                << "\tz : " << temp_quaternion.z() << "\n"
+                << "\tw : " << temp_quaternion.w() << "\n";
 }
